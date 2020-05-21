@@ -1,7 +1,17 @@
-import React from 'react'
-import './App.css'
+import React from "react";
+import "./App.css";
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isMobileMenuOpen: false,
+    };
+  }
+
+  toggleMobileMenu = () => {
+    this.setState({ isMobileMenuOpen: !this.state.isMobileMenuOpen });
+  }
   render() {
     return (
       <div className="App">
@@ -21,6 +31,18 @@ class App extends React.Component {
               <li className="nav-list-item">Contact</li>
             </ul>
           </nav>
+          <nav className="mobile-nav">
+            <img
+              onClick={this.toggleMobileMenu}
+              className="hamburger"
+              src="https://img.icons8.com/pastel-glyph/2x/hamburger.png"
+            ></img>
+            <ul className={`mobile-nav-list ${this.state.isMobileMenuOpen ? 'mobile-nav-list-open' : null}`}>
+              <li className="mobile-nav list-item">home</li>
+              <li className="mobile-nav list-item">about</li>
+              <li className="mobile-nav list-item">contact</li>
+            </ul>
+          </nav>
         </header>
         <div className="boxes-hold">
           <div className="box box-1"></div>
@@ -33,8 +55,8 @@ class App extends React.Component {
           <div className="box box-6"></div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;

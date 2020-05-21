@@ -1,4 +1,4 @@
-@import './reset.css';
+@import "./reset.css";
 
 * {
   box-sizing: border-box;
@@ -17,10 +17,38 @@
   display: flex;
   align-items: center;
   padding: 16px;
+  position: relative;
 }
 
 .nav-list {
   display: flex;
+}
+
+.hamburger {
+  height: 75px;
+  position: absolute;
+  right: 16px;
+  top: 25%;
+  display: none;
+}
+
+.mobile-nav-list {
+  position: absolute;
+  right: -25vw;
+  top: 15vh;
+  height: 0px;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.mobile-nav-list-open {
+  height: 15vh;
+  right: 0;
 }
 
 .nav-list-item {
@@ -55,4 +83,32 @@
   height: 100px;
   width: 100px;
   border: 1px solid black;
+}
+@media (max-width: 900px) {
+  .header {
+    background-color: blueviolet;
+  }
+  .nav-list-item {
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 1000px) {
+  .header {
+    background-color: firebrick;
+  }
+}
+
+@media (max-width: 500px) {
+  .boxes-hold {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .nav-list {
+    display: none;
+  }
+  .hamburger {
+    display: inline-block;
+  }
 }
